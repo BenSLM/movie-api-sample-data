@@ -1,4 +1,4 @@
-const z = require('zod')
+import z from 'zod'
 
 const movieSchema = z.object({
     title: z.string({
@@ -28,14 +28,12 @@ const movieSchema = z.object({
     rate: z.number().min(1).max(10).default(1)
 })
 
-function validateMovie(object) {
+export function validateMovie(object) {
     return movieSchema.safeParse(object)
 }
 
 //Partial hace que las validaciones que las propiedades que pusimos arriba las hace opcionales
 //De manera de que si no esta o no se actualiza no pasa nada. 
-function validatePartialMovie(input) {
+export function validatePartialMovie(input) {
     return movieSchema.partial().safeParse(input)
 }
-
-module.exports = { validateMovie,  validatePartialMovie }
