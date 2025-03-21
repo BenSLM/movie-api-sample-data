@@ -1,4 +1,4 @@
-import movies from '../movies.json' with { type: 'json' }
+import movies from '../../movies.json' with { type: 'json' }
 import { randomUUID } from 'node:crypto';
 
 // Clase que encapsula la logica de acceso a los datos de las peliculas

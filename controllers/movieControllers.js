@@ -1,4 +1,4 @@
-import { MovieModel } from "../models/movieModels.js";
+import { MovieModel } from "../models/mysql/movieModels.js";
 import { validateMovie, validatePartialMovie } from '../schemas/moviesSchema.js';
 
 export class MovieController {
@@ -60,10 +60,7 @@ export class MovieController {
   
     const { id } = req.params;
     try {
-      const updatedMovie = await MovieModel.update({
-        id,
-        input: result.data
-      });
+      const updatedMovie = await MovieModel.update({ id, input: result.data });
   
       res.status(200).json(updatedMovie);
     } catch (error) {
