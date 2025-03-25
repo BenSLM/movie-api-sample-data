@@ -17,7 +17,7 @@ export class MovieController {
     const { fields } = req.query;
 
     try {
-      const movie = await MovieModel.getById({ id });
+      const movie = await MovieModel.getById({ id, fields });
 
       if (movie.genre && Array.isArray(movie.genre)) {
         movie.genre = movie.genre.join(", ");
